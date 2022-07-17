@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyCustomer">
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyCustomer">
    <children>
       <HBox style="-fx-border-color: black;">
          <children>
@@ -30,7 +30,7 @@
                               <Insets top="90.0" />
                            </StackPane.margin>
                         </Label>
-                        <Label text="Edit Customer" StackPane.alignment="TOP_CENTER">
+                        <Label text="Modify Customer" StackPane.alignment="TOP_CENTER">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -52,22 +52,21 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <Label text="Customer ID" />
-                        <Label text="Location">
+                        <Label text="Customer ID" StackPane.alignment="BOTTOM_CENTER">
                            <StackPane.margin>
-                              <Insets top="90.0" />
-                           </StackPane.margin>
-                        </Label>
+                              <Insets bottom="15.0" />
+                           </StackPane.margin></Label>
                      </children>
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
                      <children>
-                        <TextField fx:id="customerIdField" maxWidth="-Infinity" prefWidth="125.0" style="-fx-background-color: lightgray;" StackPane.alignment="CENTER_LEFT" />
-                        <ChoiceBox fx:id="locationBox" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                        <TextField fx:id="customerIdField" editable="false" maxWidth="-Infinity" prefWidth="125.0" style="-fx-background-color: lightgray;" text="Auto-Generated" StackPane.alignment="BOTTOM_LEFT">
                            <StackPane.margin>
-                              <Insets top="90.0" />
+                              <Insets bottom="15.0" />
                            </StackPane.margin>
-                        </ChoiceBox>
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font></TextField>
                      </children>
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -94,8 +93,24 @@
                         </TextField>
                      </children>
                   </StackPane>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Country">
+                           <StackPane.margin>
+                              <Insets bottom="90.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label text="Division" />
+                     </children></StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ComboBox fx:id="countryComboBox" maxWidth="-Infinity" onAction="#onCountryComboBox" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                           <StackPane.margin>
+                              <Insets bottom="90.0" />
+                           </StackPane.margin>
+                        </ComboBox>
+                        <ComboBox fx:id="divisionComboBox" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT" />
+                     </children></StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />

@@ -5,12 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreen">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreen">
    <children>
-      <GridPane prefHeight="585.0" prefWidth="1000.0" style="-fx-border-color: black;">
+      <GridPane prefHeight="700.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="776.0" minWidth="1000.0" prefWidth="1024.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="-Infinity" minHeight="50.0" prefHeight="25.0" vgrow="SOMETIMES" />
@@ -19,98 +18,148 @@
         </rowConstraints>
          <children>
             <StackPane prefHeight="150.0" prefWidth="200.0" />
-            <StackPane maxHeight="50.0" prefHeight="47.0" prefWidth="1000.0">
+            <StackPane maxHeight="50.0" prefHeight="47.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Upcoming Appointments" textAlignment="CENTER" StackPane.alignment="CENTER_RIGHT">
+                  <Label fx:id="appointmentLabel" alignment="CENTER" contentDisplay="CENTER" text="Appointment List" textAlignment="CENTER" StackPane.alignment="CENTER">
                      <font>
-                        <Font name="Calibri" size="24.0" />
+                        <Font name="Calibri Bold" size="24.0" />
                      </font>
                      <StackPane.margin>
-                        <Insets right="15.0" />
+                        <Insets />
+                     </StackPane.margin>
+                  </Label>
+                  <Label text="Current System Time:" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="50.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <Label text="Current East Coast Time:" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="50.0" top="25.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <Label fx:id="systemTimeLabel" layoutX="847.0" layoutY="10.0" text="12:00" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="10.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <Label fx:id="eastCoastTimeLabel" layoutX="830.0" layoutY="35.0" text="12:00" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="10.0" top="25.0" />
                      </StackPane.margin>
                   </Label>
                </children>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <StackPane prefWidth="1000.0" GridPane.rowIndex="1">
+            <StackPane style="-fx-border-color: LIGHTGRAY;" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="newAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onNewAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="New" StackPane.alignment="BOTTOM_CENTER">
+                  <Button fx:id="newAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onNewAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="New" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
-                        <Insets bottom="25.0" right="180.0" />
+                        <Insets bottom="15.0" left="25.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="modifyAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onModifyAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="Modify" StackPane.alignment="BOTTOM_CENTER">
+                  <Button fx:id="modifyAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onModifyAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="Modify" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
-                        <Insets bottom="25.0" />
+                        <Insets bottom="15.0" left="125.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="deleteAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="Delete" StackPane.alignment="BOTTOM_CENTER">
+                  <Button fx:id="deleteAppointmentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteAppointmentButton" prefHeight="30.0" prefWidth="75.0" text="Delete" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
-                        <Insets bottom="25.0" left="180.0" />
+                        <Insets bottom="15.0" left="225.0" />
                      </StackPane.margin>
                   </Button>
-                  <TableView fx:id="appointmentTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="767.0" StackPane.alignment="TOP_LEFT">
-                    <columns>
-                      <TableColumn fx:id="id" prefWidth="32.0" text="ID" />
-                      <TableColumn fx:id="title" prefWidth="122.0" text="Title" />
-                        <TableColumn fx:id="description" prefWidth="128.0" text="Description" />
-                        <TableColumn fx:id="location" prefWidth="61.0" text="Location" />
-                        <TableColumn fx:id="contact" prefWidth="65.0" text="Contact" />
-                        <TableColumn fx:id="startDate" prefWidth="68.0" text="Start Date" />
-                        <TableColumn fx:id="endDate" prefWidth="78.0" text="End Date" />
-                        <TableColumn fx:id="customerId" prefWidth="82.0" text="Customer ID" />
-                        <TableColumn fx:id="userId" prefWidth="57.0" text="User ID" />
-                        <TableColumn fx:id="type" prefWidth="57.0" text="Type" />
-                    </columns>
+                  <RadioButton fx:id="allAppointmentsFilter" layoutX="596.0" layoutY="241.0" mnemonicParsing="false" onAction="#onAllFilterButton" text="All Appointments" StackPane.alignment="BOTTOM_CENTER">
+                     <StackPane.margin>
+                        <Insets bottom="35.0" />
+                     </StackPane.margin>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="filterButtonGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="weekFilter" mnemonicParsing="false" onAction="#onWeekFilterButton" text="Appointments This Week" toggleGroup="$filterButtonGroup" StackPane.alignment="BOTTOM_CENTER">
+                     <StackPane.margin>
+                        <Insets bottom="35.0" left="350.0" />
+                     </StackPane.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="monthFilter" mnemonicParsing="false" onAction="#onMonthFilterButton" text="Appointments This Month" toggleGroup="$filterButtonGroup" StackPane.alignment="BOTTOM_CENTER">
+                     <StackPane.margin>
+                        <Insets bottom="35.0" left="775.0" />
+                     </StackPane.margin>
+                  </RadioButton>
+                  <TableView fx:id="appointmentTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="950.0" StackPane.alignment="TOP_CENTER">
                      <StackPane.margin>
                         <Insets left="5.0" />
                      </StackPane.margin>
-                  </TableView>
-                  <Label text="Customers" StackPane.alignment="BOTTOM_LEFT">
-                     <font>
-                        <Font name="Calibri" size="24.0" />
-                     </font>
-                     <StackPane.margin>
-                        <Insets bottom="-5.0" left="175.0" />
-                     </StackPane.margin>
-                  </Label>
-               </children>
-            </StackPane>
-            <StackPane prefWidth="1000.0" GridPane.rowIndex="2">
-               <children>
-                  <TableView fx:id="customerTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="445.0" StackPane.alignment="CENTER_LEFT">
                      <columns>
-                        <TableColumn prefWidth="28.0" text="ID" />
-                        <TableColumn prefWidth="114.0" text="Customer Name" />
-                        <TableColumn prefWidth="130.0" text="Address" />
-                        <TableColumn text="Postal Code" />
-                        <TableColumn prefWidth="86.0" text="Telephone" />
+                        <TableColumn fx:id="apptIdCol" prefWidth="30.0" text="ID" />
+                        <TableColumn fx:id="apptTitleCol" prefWidth="98.0" text="Title" />
+                        <TableColumn fx:id="apptDescriptionCol" prefWidth="136.0" text="Description" />
+                        <TableColumn fx:id="apptLocationCol" prefWidth="97.0" text="Location" />
+                        <TableColumn fx:id="apptTypeCol" prefWidth="152.0" text="Type" />
+                        <TableColumn fx:id="apptStartTimeCol" prefWidth="125.0" text="Start Time" />
+                        <TableColumn fx:id="apptEndTimeCol" prefWidth="111.0" text="End Time" />
+                        <TableColumn fx:id="apptCustomerIdCol" prefWidth="77.0" text="Customer ID" />
+                        <TableColumn fx:id="apptUserIdCol" prefWidth="50.0" text="User ID" />
+                        <TableColumn fx:id="apptContactCol" prefWidth="66.0" text="Contact ID" />
                      </columns>
-                     <StackPane.margin>
-                        <Insets left="5.0" />
-                     </StackPane.margin>
                   </TableView>
-                  <Button fx:id="newCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onNewCustomerButton" prefHeight="30.0" prefWidth="75.0" text="New" StackPane.alignment="BOTTOM_RIGHT">
+               </children>
+               <GridPane.margin>
+                  <Insets left="3.0" />
+               </GridPane.margin>
+            </StackPane>
+            <StackPane style="-fx-border-color: LIGHTGRAY;" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Customers" StackPane.alignment="TOP_CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="24.0" />
+                     </font>
                      <StackPane.margin>
-                        <Insets bottom="100.0" left="230.0" top="20.0" />
+                        <Insets top="10.0" />
+                     </StackPane.margin>
+                  </Label>
+                  <TableView fx:id="customerTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="950.0" StackPane.alignment="TOP_CENTER">
+                     <StackPane.margin>
+                        <Insets left="5.0" top="60.0" />
+                     </StackPane.margin>
+                     <columns>
+                        <TableColumn fx:id="custIdCol" prefWidth="44.0" text="ID" />
+                        <TableColumn fx:id="custCustNameCol" prefWidth="158.0" text="Name" />
+                        <TableColumn fx:id="custAddressCol" prefWidth="206.0" text="Address" />
+                        <TableColumn fx:id="custPostalCodeCol" minWidth="0.0" prefWidth="96.0" text="Postal Code" />
+                        <TableColumn fx:id="custTelephoneCol" prefWidth="153.0" text="Telephone" />
+                        <TableColumn fx:id="custCountryCol" prefWidth="127.0" text="Country" />
+                        <TableColumn fx:id="custDivisionCol" prefWidth="164.0" text="Division" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="newCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onNewCustomerButton" prefHeight="30.0" prefWidth="75.0" text="New" StackPane.alignment="BOTTOM_LEFT">
+                     <StackPane.margin>
+                        <Insets bottom="35.0" left="25.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="modifyCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onModifyCustomerButton" prefHeight="30.0" prefWidth="75.0" text="Modify" StackPane.alignment="BOTTOM_RIGHT">
+                  <Button fx:id="modifyCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onModifyCustomerButton" prefHeight="30.0" prefWidth="75.0" text="Modify" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
-                        <Insets bottom="60.0" left="230.0" top="80.0" />
+                        <Insets bottom="35.0" left="125.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="deleteCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteCustomerButton" prefHeight="30.0" prefWidth="75.0" text="Delete" StackPane.alignment="BOTTOM_RIGHT">
+                  <Button fx:id="deleteCustomerButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onDeleteCustomerButton" prefHeight="30.0" prefWidth="75.0" text="Delete" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
-                        <Insets bottom="20.0" left="230.0" top="140.0" />
+                        <Insets bottom="35.0" left="225.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="logoutButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="25.0" prefWidth="100.0" text="Log out" StackPane.alignment="BOTTOM_RIGHT">
+                     <StackPane.margin>
+                        <Insets bottom="25.0" right="25.0" />
+                     </StackPane.margin></Button>
+                  <Button fx:id="reportsButton" layoutX="881.0" layoutY="325.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onReportsButton" prefHeight="25.0" prefWidth="100.0" text="Reports" StackPane.alignment="BOTTOM_RIGHT">
+                     <StackPane.margin>
+                        <Insets bottom="25.0" right="175.0" />
                      </StackPane.margin>
                   </Button>
                </children>
+               <GridPane.margin>
+                  <Insets left="3.0" />
+               </GridPane.margin>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Button fx:id="logoutButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="200.0" prefWidth="200.0" text="Log out" />
-               </children></StackPane>
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

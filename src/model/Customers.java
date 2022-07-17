@@ -3,35 +3,34 @@ package model;
 public class Customers {
 
     private int customerID;
-    private int customerPostalCode;
-    private int divisionID;
+    private String customerPostalCode;
     private String customerName;
     private String customerAddress;
     private String customerPhoneNumber;
+    private int divisionID;
+    private String country;
     private String divisionName;
-    private String countryName;
 
     /**
-     *
-     * @param customerID customerID int
-     * @param customerPostalCode customer postal code int
-     * @param divisionID division ID int
-     * @param customerName customer name string
-     * @param customerAddress customer address string
+     * @param customerID          customerID int
+     * @param customerPostalCode  customer postal code int
+     * @param divisionID          division ID int
+     * @param customerName        customer name string
+     * @param customerAddress     customer address string
      * @param customerPhoneNumber customer phone number string
-     * @param divisionName customer division string
-     * @param countryName customer country name string
+     * @param country customer country name string
+     * @param divisionName customers division name string
      */
-    public Customers(int customerID, int customerPostalCode, int divisionID, String customerName, String customerAddress,
-                     String customerPhoneNumber, String divisionName, String countryName){
+    public Customers(int customerID, String customerPostalCode, int divisionID, String customerName, String customerAddress,
+                     String customerPhoneNumber, String country, String divisionName){
         this.customerID = customerID;
         this.customerPostalCode = customerPostalCode;
         this.divisionID = divisionID;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerPhoneNumber = customerPhoneNumber;
+        this.country = country;
         this.divisionName = divisionName;
-        this.countryName = countryName;
     }
 
     /**
@@ -53,7 +52,7 @@ public class Customers {
      * return customer postal code
      * @return customer postal code
      */
-    public int getCustomerPostalCode() {
+    public String getCustomerPostalCode() {
         return customerPostalCode;
     }
 
@@ -124,33 +123,20 @@ public class Customers {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    /**
-     * returns division name
-     * @return division name
-     */
-    public String getDivisionName(){
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String countryID) {
+        this.country = countryID;
+    }
+
+    public String getDivisionName() {
         return divisionName;
     }
 
-    /**
-     * sets division name
-     */
-    public void setDivisionName(){
+    public void setDivisionName(String divisionName) {
         this.divisionName = divisionName;
     }
 
-    /**
-     * returns country name
-     * @return country name
-     */
-    public String getCountryName(){
-        return countryName;
-    }
-
-    /**
-     * sets country name
-     */
-    public void setCountryName(){
-        this.countryName = countryName;
-    }
 }

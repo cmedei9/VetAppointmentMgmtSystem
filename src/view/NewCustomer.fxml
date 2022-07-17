@@ -5,121 +5,135 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewCustomer">
-   <children>
-      <HBox style="-fx-border-color: black;">
-         <children>
-            <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <children>
-                    <StackPane prefHeight="150.0" prefWidth="200.0">
-                        <children>
-                            <Label text="Name" />
-                            <Label text="Address">
-                                <StackPane.margin>
-                                    <Insets top="90.0" />
-                                </StackPane.margin>
-                            </Label>
-                        <Label text="New Customer" StackPane.alignment="TOP_CENTER">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                           <StackPane.margin>
-                              <Insets top="15.0" />
-                           </StackPane.margin>
-                        </Label>
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
-                        <children>
-                            <TextField fx:id="nameField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT" />
-                            <TextField fx:id="addressField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
-                                <StackPane.margin>
-                                    <Insets top="90.0" />
-                                </StackPane.margin>
-                            </TextField>
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
-                        <children>
-                            <Label text="Customer ID" />
-                            <Label text="Location">
-                                <StackPane.margin>
-                                    <Insets top="90.0" />
-                                </StackPane.margin>
-                            </Label>
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
-                        <children>
-                            <TextField fx:id="customerIdField" maxWidth="-Infinity" prefWidth="125.0" style="-fx-background-color: lightgray;" StackPane.alignment="CENTER_LEFT" />
-                            <ChoiceBox fx:id="locationBox" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
-                                <StackPane.margin>
-                                    <Insets top="90.0" />
-                                </StackPane.margin>
-                            </ChoiceBox>
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
-                        <children>
-                            <Label text="Postal Code">
-                                <StackPane.margin>
-                                    <Insets bottom="90.0" />
-                                </StackPane.margin>
-                            </Label>
-                            <Label text="Phone Number" />
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <children>
-                            <TextField fx:id="postalCodeField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
-                                <StackPane.margin>
-                                    <Insets bottom="90.0" />
-                                </StackPane.margin>
-                            </TextField>
-                            <TextField fx:id="phoneNumberField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
-                                <StackPane.margin>
-                                    <Insets />
-                                </StackPane.margin>
-                            </TextField>
-                        </children>
-                    </StackPane>
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                        <children>
-                            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveButton" text="Save" StackPane.alignment="BOTTOM_LEFT">
-                                <StackPane.margin>
-                                    <Insets bottom="20.0" />
-                                </StackPane.margin>
-                            </Button>
-                            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButton" text="Cancel" StackPane.alignment="BOTTOM_RIGHT">
-                                <StackPane.margin>
-                                    <Insets bottom="20.0" right="20.0" />
-                                </StackPane.margin>
-                            </Button>
-                        </children>
-                    </StackPane>
-                </children>
-            </GridPane>
-         </children>
-         <VBox.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </VBox.margin>
-      </HBox>
-   </children>
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewCustomer">
+    <children>
+        <HBox style="-fx-border-color: black;">
+            <children>
+                <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                            <children>
+                                <Label text="Name" />
+                                <Label text="Address">
+                                    <StackPane.margin>
+                                        <Insets top="90.0" />
+                                    </StackPane.margin>
+                                </Label>
+                                <Label text="New Customer" StackPane.alignment="TOP_CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <StackPane.margin>
+                                        <Insets top="15.0" />
+                                    </StackPane.margin>
+                                </Label>
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                            <children>
+                                <TextField fx:id="nameField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT" />
+                                <TextField fx:id="addressField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                                    <StackPane.margin>
+                                        <Insets top="90.0" />
+                                    </StackPane.margin>
+                                </TextField>
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+                            <children>
+                                <Label text="Customer ID" StackPane.alignment="BOTTOM_CENTER">
+                                    <StackPane.margin>
+                                        <Insets bottom="15.0" />
+                                    </StackPane.margin></Label>
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
+                            <children>
+                                <TextField fx:id="customerIdField" editable="false" maxWidth="-Infinity" prefWidth="125.0" style="-fx-background-color: lightgray;" text="Auto-Generated" StackPane.alignment="BOTTOM_LEFT">
+                                    <StackPane.margin>
+                                        <Insets bottom="15.0" />
+                                    </StackPane.margin>
+                                    <font>
+                                        <Font name="System Italic" size="12.0" />
+                                    </font></TextField>
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <children>
+                                <Label text="Postal Code">
+                                    <StackPane.margin>
+                                        <Insets bottom="90.0" />
+                                    </StackPane.margin>
+                                </Label>
+                                <Label text="Phone Number" />
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                <TextField fx:id="postalCodeField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                                    <StackPane.margin>
+                                        <Insets bottom="90.0" />
+                                    </StackPane.margin>
+                                </TextField>
+                                <TextField fx:id="phoneNumberField" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                                    <StackPane.margin>
+                                        <Insets />
+                                    </StackPane.margin>
+                                </TextField>
+                            </children>
+                        </StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <children>
+                                <Label text="Country">
+                                    <StackPane.margin>
+                                        <Insets bottom="90.0" />
+                                    </StackPane.margin>
+                                </Label>
+                                <Label text="Division" />
+                            </children></StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <children>
+                                <ComboBox fx:id="countryComboBox" maxWidth="-Infinity" onAction="#onCountryComboBox" prefWidth="125.0" StackPane.alignment="CENTER_LEFT">
+                                    <StackPane.margin>
+                                        <Insets bottom="90.0" />
+                                    </StackPane.margin>
+                                </ComboBox>
+                                <ComboBox fx:id="divisionComboBox" maxWidth="-Infinity" prefWidth="125.0" StackPane.alignment="CENTER_LEFT" />
+                            </children></StackPane>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                            <children>
+                                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveButton" text="Save" StackPane.alignment="BOTTOM_LEFT">
+                                    <StackPane.margin>
+                                        <Insets bottom="20.0" />
+                                    </StackPane.margin>
+                                </Button>
+                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButton" text="Cancel" StackPane.alignment="BOTTOM_RIGHT">
+                                    <StackPane.margin>
+                                        <Insets bottom="20.0" right="20.0" />
+                                    </StackPane.margin>
+                                </Button>
+                            </children>
+                        </StackPane>
+                    </children>
+                </GridPane>
+            </children>
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
 </VBox>

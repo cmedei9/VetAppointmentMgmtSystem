@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewAppointment">
+<HBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NewAppointment">
    <children>
       <VBox style="-fx-border-color: black;">
          <children>
@@ -53,7 +53,7 @@
                   </StackPane>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <TextField editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: lightgray;" StackPane.alignment="TOP_LEFT">
+                        <TextField fx:id="appointmentIdField" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: lightgray;" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets left="10.0" />
                            </StackPane.margin>
@@ -62,7 +62,7 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Start Date" />
+                        <Label text="Appointment Date" />
                      </children></StackPane>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="162.0" GridPane.rowIndex="2">
                      <children>
@@ -75,7 +75,7 @@
                   </StackPane>
                   <StackPane prefHeight="68.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <TextField fx:id="titleField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets left="10.0" />
                            </StackPane.margin>
@@ -84,7 +84,7 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <DatePicker StackPane.alignment="TOP_CENTER" />
+                        <DatePicker fx:id="startCalendar" StackPane.alignment="TOP_CENTER" />
                      </children></StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
                      <children>
@@ -97,17 +97,14 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <TextField fx:id="descField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets left="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>
                   </StackPane>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <children>
-                        <Label text="End Date" />
-                     </children></StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
                      <children>
                         <Label text="Location" StackPane.alignment="TOP_RIGHT">
@@ -119,17 +116,14 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <TextField fx:id="locationField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets left="10.0" />
                            </StackPane.margin>
                         </TextField>
                      </children>
                   </StackPane>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <children>
-                        <DatePicker StackPane.alignment="TOP_CENTER" />
-                     </children></StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
                      <children>
                         <Label text="Contact" StackPane.alignment="TOP_RIGHT">
@@ -141,11 +135,11 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <ComboBox fx:id="contactComboBox" prefWidth="150.0">
                            <StackPane.margin>
-                              <Insets left="10.0" />
+                              <Insets bottom="10.0" left="5.0" />
                            </StackPane.margin>
-                        </TextField>
+                        </ComboBox>
                      </children>
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
@@ -164,7 +158,7 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <TextField fx:id="typeField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets left="10.0" />
                            </StackPane.margin>
@@ -173,7 +167,10 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <children>
-                        <DatePicker StackPane.alignment="TOP_CENTER" />
+                        <ComboBox fx:id="startTimeComboBox" prefWidth="150.0">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" />
+                           </StackPane.margin></ComboBox>
                      </children></StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="7">
                      <children>
@@ -186,11 +183,11 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <ComboBox fx:id="customerIdComboBox" prefWidth="150.0">
                            <StackPane.margin>
-                              <Insets left="10.0" />
+                              <Insets bottom="10.0" />
                            </StackPane.margin>
-                        </TextField>
+                        </ComboBox>
                      </children>
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
@@ -208,16 +205,19 @@
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" StackPane.alignment="TOP_LEFT">
+                        <ComboBox fx:id="userIdComboBox" prefWidth="150.0">
                            <StackPane.margin>
-                              <Insets left="10.0" />
+                              <Insets bottom="10.0" />
                            </StackPane.margin>
-                        </TextField>
+                        </ComboBox>
                      </children>
                   </StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
                      <children>
-                        <DatePicker StackPane.alignment="TOP_CENTER" />
+                        <ComboBox fx:id="endTimeComboBox" prefWidth="150.0">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" />
+                           </StackPane.margin></ComboBox>
                      </children></StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="9" />
                   <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />

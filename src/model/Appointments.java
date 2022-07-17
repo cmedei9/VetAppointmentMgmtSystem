@@ -1,84 +1,92 @@
 package model;
 
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Appointments {
 
-    private int appointmentId;
+    private int appointmentID;
     private String appointmentTitle;
     private String appointmentDescription;
     private String appointmentLocation;
     private String appointmentType;
-    private LocalDate appointmentStartTime;
-    private LocalDate appointmentEndTime;
-    private LocalDateTime appointmentStartDate;
-    private LocalDateTime appointmentEndDate;
-    private int customerId;
-    private int userId;
-    private int contactId;
+    private LocalDate apptStartDate;
+    private LocalDateTime apptStartTime;
+    private LocalDate apptEndDate;
+    private LocalDateTime apptEndTime;
+    private int customerID;
+    private int userID;
+    private int contactID;
+    private String contactName;
+
+
+
 
     /**
      *
-     * @param appointmentId INT value appointment ID
-     * @param appointmentTitle String value appointment title
-     * @param appointmentDescription String value appointment description
-     * @param appointmentLocation String value appointment location
-     * @param appointmentType String value appointment type
-     * @param appointmentStartTime LocalDate value appointments start time
-     * @param appointmentEndTime LocalDate value appointments end time
-     * @param appointmentStartDate LocalDateTime value appointments start date
-     * @param appointmentEndDate LocalDateTime value appointments start date
-     * @param customerId INT value customer ID
-     * @param userId INT value user ID
-     * @param contactId INT value Contact ID
+     * @param appointmentID INT value appt ID
+     * @param appointmentTitle String value appt title
+     * @param appointmentDescription String value appt description
+     * @param appointmentLocation String value appt location
+     * @param appointmentType String value appt type
+     * @param apptStartDate LocalDate value appts start date
+     * @param apptStartTime LocalDateTime value appts start time
+     * @param apptEndDate LocalDate value appts end date
+     * @param apptEndTime LocalDateTime value appts end time
+     * @param customerID INT value customer ID
+     * @param userID INT value user ID
+     * @param contactID INT value Contact ID
+     * @param contactName string value contact name
      */
-    public Appointments(int appointmentId, String appointmentTitle, String appointmentDescription,
-                        String appointmentLocation, String appointmentType, LocalDate appointmentStartTime,
-                        LocalDate appointmentEndTime, LocalDateTime appointmentStartDate, LocalDateTime appointmentEndDate,
-                        int customerId, int userId, int contactId){
+    public Appointments(int appointmentID, String appointmentTitle, String appointmentDescription,
+                        String appointmentLocation, String appointmentType, LocalDate apptStartDate, LocalDateTime apptStartTime,
+                        LocalDate apptEndDate, LocalDateTime apptEndTime, int customerID, int userID, int contactID, String contactName){
 
-        this.appointmentId = appointmentId;
+        this.appointmentID = appointmentID;
         this.appointmentTitle = appointmentTitle;
         this.appointmentDescription = appointmentDescription;
         this.appointmentLocation = appointmentLocation;
         this.appointmentType = appointmentType;
-        this.appointmentStartTime = appointmentStartTime;
-        this.appointmentEndTime = appointmentEndTime;
-        this.appointmentStartDate = appointmentStartDate;
-        this.appointmentEndDate = appointmentEndDate;
-        this.customerId = customerId;
-        this.userId = userId;
-        this.contactId = contactId;
+        this.apptStartTime = apptStartTime;
+        this.apptEndTime = apptEndTime;
+        this.customerID = customerID;
+        this.userID = userID;
+        this.contactID = contactID;
+        this.contactName = contactName;
+        this.apptStartDate = apptStartDate;
+        this.apptEndDate = apptEndDate;
+
     }
 
+
     /**
-     * return appointment ID
-     * @return appointment ID
+     * return appt ID
+     * @return appt ID
      */
-    public int getAppointmentId() {
-        return appointmentId;
+    public int getAppointmentID() {
+        return appointmentID;
     }
 
     /**
-     * sets appointment ID
-     * @param appointmentId sets appointment id
+     * sets appt ID
+     * @param appointmentID sets appt id
      */
-    public void setAppointmentId(int appointmentId) {
-        this.appointmentId = appointmentId;
+    public void setAppointmentID(int appointmentID) {
+        this.appointmentID = appointmentID;
     }
 
     /**
-     * returns appointment title
-     * @return appointment title
+     * returns appt title
+     * @return appt title
      */
     public String getAppointmentTitle(){
         return appointmentTitle;
     }
 
     /**
-     * sets appointment title
-     * @param appointmentTitle sets appointment title
+     * sets appt title
+     * @param appointmentTitle sets appt title
      */
     public void setAppointmentTitle(String appointmentTitle) {
         this.appointmentTitle = appointmentTitle;
@@ -86,38 +94,38 @@ public class Appointments {
 
     /**
      * returns appt description
-     * @return returns appointment description
+     * @return returns appt description
      */
     public String getAppointmentDescription(){
         return appointmentDescription;
     }
 
     /**
-     * sets appointment description
-     * @param appointmentDescription sets appointment description
+     * sets appt description
+     * @param appointmentDescription sets appt description
      */
     public void setAppointmentDescription(String appointmentDescription) {
         this.appointmentDescription = appointmentDescription;
     }
 
     /**
-     * returns appointment location
-     * @return appointment location
+     * returns appt location
+     * @return appt location
      */
     public String getAppointmentLocation() {
         return appointmentLocation;
     }
 
     /**
-     * sets appointment location
-     * @param appointmentLocation sets appointment location
+     * sets appt location
+     * @param appointmentLocation sets appt location
      */
     public void setAppointmentLocation(String appointmentLocation) {
         this.appointmentLocation = appointmentLocation;
     }
 
     /**
-     * returns appointment type
+     * returns appt type
      * @return appt type
      */
     public String getAppointmentType(){
@@ -125,124 +133,116 @@ public class Appointments {
     }
 
     /**
-     * sets appointment type
-     * @param appointmentType sets appointment type
+     * sets appt type
+     * @param appointmentType sets appt type
      */
     public void setAppointmentType(String appointmentType) {
         this.appointmentType = appointmentType;
     }
 
     /**
-     * returns appointment start time
-     * @return appointment start time
+     * returns appt start time
+     *
+     * @return appt start time
      */
-    public LocalDate getAppointmentStartTime(){
-        return appointmentStartTime;
+    public LocalDateTime getApptStartTime(){
+        return apptStartTime;
     }
 
     /**
-     * sets appointment start time
-     * @param appointmentStartTime sets appointment start time
+     * sets appt start time
+     * @param apptStartTime sets appt start time
      */
-    public void setAppointmentStartTime(LocalDate appointmentStartTime){
-        this.appointmentStartTime = appointmentStartTime;
+    public void setApptStartTime(LocalDateTime apptStartTime){
+        this.apptStartTime = apptStartTime;
     }
 
     /**
      * returns appt end time
+     *
      * @return appt end time
      */
-    public LocalDate getAppointmentEndTime() {
-        return appointmentEndTime;
+    public LocalDateTime getApptEndTime() {
+        return apptEndTime;
     }
 
     /**
      * sets appt end time
-     * @param appointmentEndTime sets appt end time
+     * @param apptEndTime sets appt end time
      */
-    public void setAppointmentEndTime(LocalDate appointmentEndTime) {
-        this.appointmentEndTime = appointmentEndTime;
-    }
-
-    /**
-     * returns appointment start date
-     * @return appt start date
-     */
-    public LocalDateTime getAppointmentStartDate() {
-        return appointmentStartDate;
-    }
-
-    /**
-     * sets appointment start date
-     * @param appointmentStartDate sets appointment start date
-     */
-    public void setAppointmentStartDate(LocalDateTime appointmentStartDate) {
-        this.appointmentStartDate = appointmentStartDate;
-    }
-
-    /**
-     * returns appointment end date
-     * @return appt end date
-     */
-    public LocalDateTime getAppointmentEndDate() {
-        return appointmentEndDate;
-    }
-
-    /**
-     * sets appointment end date
-     * @param appointmentEndDate sets appt end date
-     */
-    public void setAppointmentEndDate(LocalDateTime appointmentEndDate) {
-        this.appointmentEndDate = appointmentEndDate;
+    public void setApptEndTime(LocalDateTime apptEndTime) {
+        this.apptEndTime = apptEndTime;
     }
 
     /**
      * gets customer id
      * @return returns customer id
      */
-    public int getCustomerId() {
-        return customerId;
+    public int getCustomerID() {
+        return customerID;
     }
 
     /**
      * sets customer id
-     * @param customerId sets customer id
+     * @param customerID sets customer id
      */
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     /**
      * returns user id
      * @return user id
      */
-    public int getUserId() {
-        return userId;
+    public int getUserID() {
+        return userID;
     }
 
     /**
      * sets user id
-     * @param userId sets user id
+     * @param userID sets user id
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     /**
      * returns contact ID
      * @return contact ID
      */
-    public int getContactId() {
-        return contactId;
+    public int getContactID() {
+        return contactID;
     }
 
     /**
      * sets contact ID
-     * @param contactId sets contact ID
+     * @param contactID sets contact ID
      */
-    public void setContactId(int contactId) {
-        this.contactId = contactId;
+    public void setContactID(int contactID) {
+        this.contactID = contactID;
     }
 
+    public String getContactName() {
+        return contactName;
+    }
 
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
+    }
+
+    public LocalDate getApptStartDate() {
+        return apptStartDate;
+    }
+
+    public void setApptStartDate(LocalDate apptStartDate) {
+        this.apptStartDate = apptStartDate;
+    }
+
+    public LocalDate getApptEndDate() {
+        return apptEndDate;
+    }
+
+    public void setApptEndDate(LocalDate apptEndDate) {
+        this.apptEndDate = apptEndDate;
+    }
 }
