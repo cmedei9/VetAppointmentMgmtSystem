@@ -19,14 +19,6 @@ public class Users {
     }
 
     /**
-     * sets user id
-     * @param userId setter for user id
-     */
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    /**
      * getter for user id
      * @return user id
      */
@@ -34,16 +26,9 @@ public class Users {
         return userId;
     }
 
-    /**
-     * setter for username
-     * @param username sets username
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     /**
-     * getter for username
+     * getter for username - unused
      * @return returns username
      */
     public String getUsername() {
@@ -51,15 +36,7 @@ public class Users {
     }
 
     /**
-     * setter for password
-     * @param password sets password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * getter for password
+     * getter for password - unused
      * @return returns password
      */
     public String getPassword() {

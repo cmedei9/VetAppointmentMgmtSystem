@@ -28,14 +28,6 @@ public class Divisions {
     }
 
     /**
-     * sets division id
-     * @param divisionID sets division id
-     */
-    public void setDivisionID(int divisionID) {
-        this.divisionID = divisionID;
-    }
-
-    /**
      * returns division name
      * @return division name
      */
@@ -44,26 +36,11 @@ public class Divisions {
     }
 
     /**
-     * sets division name
-     * @param divisionName sets division name
-     */
-    public void setDivisionName(String divisionName) {
-        this.divisionName = divisionName;
-    }
-
-    /**
-     * returns country id
+     * returns country id - unused
      * @return country id
      */
     public int getCountryID(){
         return countryID;
     }
 
-    /**
-     * set country id
-     * @param countryID sets country id
-     */
-    public void setCountryID(int countryID) {
-        this.countryID = countryID;
-    }
 }

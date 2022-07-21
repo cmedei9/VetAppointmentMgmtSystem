@@ -31,7 +31,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ReportsScreen implements Initializable {
 
@@ -56,7 +55,7 @@ public class ReportsScreen implements Initializable {
 
     /**
      * Method to get all types from the database. There are 2 observablelists. One contains duplicate entries and the other removes duplicates.
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void typeDataBox() throws SQLException {
         ObservableList<Appointments> a = DBAppointments.getAppointments();
@@ -76,7 +75,7 @@ public class ReportsScreen implements Initializable {
     /**
      * This method gathers the total number of appointments that contain the same type string
       * @param actionEvent method is ran on button press
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onGenerateTypeButton(ActionEvent actionEvent) throws SQLException {
 
@@ -102,7 +101,7 @@ public class ReportsScreen implements Initializable {
 
     /**
      * Method to get all appointments and convert the date into the months value
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void monthDataBox() throws SQLException {
         ObservableList<Appointments> a = DBAppointments.getAppointments();
@@ -118,7 +117,7 @@ public class ReportsScreen implements Initializable {
     /**
      * Method to count the total number of appointments scheduled in a selected month
      * @param actionEvent on button press, method runs
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onGenerateMonthButton(ActionEvent actionEvent) throws SQLException {
 
@@ -271,7 +270,7 @@ public class ReportsScreen implements Initializable {
 
     /**
      * method to fill the contacts observable list which is used to populate the contact id combo box
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void contactDataBox() throws SQLException {
         ObservableList<Contacts> dbContacts = DBContacts.getContacts();
@@ -287,6 +286,7 @@ public class ReportsScreen implements Initializable {
     /**
      * button to initialize the report generation method. creates an alert that displays a contacts appointment information. if there are multiple appointments, multiple alerts will display.
      * @param actionEvent action event
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onGenerateContactReportButton(ActionEvent actionEvent) throws SQLException {
 
@@ -326,6 +326,7 @@ public class ReportsScreen implements Initializable {
     /**
      * Total Customer button will grab all the customers in the database and will provide a total of customers
      * @param actionEvent action event
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onTotalCustomerButton(ActionEvent actionEvent) throws SQLException {
         ObservableList<Customers> customersObservableList = DBCustomers.getCustomers();
@@ -346,8 +347,8 @@ public class ReportsScreen implements Initializable {
 
     /**
      * Back button to take user back to the home controller
-     * @param actionEvent
-     * @throws IOException
+     * @param actionEvent actionevent
+     * @throws IOException exception to show failed IO execution
      */
     public void onBackButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));

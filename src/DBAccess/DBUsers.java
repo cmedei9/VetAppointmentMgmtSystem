@@ -3,17 +3,18 @@ package DBAccess;
 import helper.JDBC;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Contacts;
 import model.Users;
 
 import java.sql.*;
-import java.time.LocalDateTime;
-
 import java.sql.ResultSet;
 
 
 public class DBUsers {
 
+    /**
+     * method to return the list of users from the database
+     * @return returns a list of the users in the database
+     */
     public static ObservableList<Users> getAllUsers() {
 
         ObservableList<Users> userData = FXCollections.observableArrayList();
@@ -40,18 +41,12 @@ public class DBUsers {
         return userData;
     }
 
-    public static ObservableList addUsers() throws SQLException {
-        ObservableList<String> usersList = FXCollections.observableArrayList();
 
-        ObservableList<Users> usersObservableList = DBUsers.getAllUsers();
-
-        for (Users u : usersObservableList) {
-            usersList.add(u.getUsername());
-        }
-
-        return usersList;
-    }
-
+    /**
+     * method used in the multiple controllers to add user IDs to a combo box
+     * @return returns the user IDs
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList addUserId() throws SQLException {
         ObservableList<Integer> usersList = FXCollections.observableArrayList();
 
@@ -63,17 +58,4 @@ public class DBUsers {
 
         return usersList;
     }
-
-    public static int userNametoID() throws SQLException {
-        int contactId = 0;
-
-        ObservableList<Users> usersObservableList = DBUsers.getAllUsers();
-        for (Users u : usersObservableList) {
-            if (usersObservableList.equals(u.getUsername()))
-                contactId = u.getUserId();
-
-        }
-        return contactId;
-    }
-
 }

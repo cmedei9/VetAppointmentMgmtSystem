@@ -33,10 +33,21 @@ public class ModifyCustomer implements Initializable {
     public ComboBox<String> divisionComboBox;
     public static Customers selectedCustomer;
 
+    /**
+     * Method to pass info from the selection on the main screen
+     * @param selectedItem item being passed
+     */
     public static void selectedCustomer(Customers selectedItem) {
         selectedCustomer = selectedItem;
     }
 
+
+    /**
+     * Save button to overwrite the selected customer with new data. Takes user back to main controller.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onSaveButton(ActionEvent actionEvent) throws IOException, SQLException {
 
 
@@ -56,6 +67,11 @@ public class ModifyCustomer implements Initializable {
         stage.show();
     }
 
+    /**
+     * Takes user back to main controller.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     */
     public void onCancelButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));
         Scene scene = new Scene(root);
@@ -65,6 +81,11 @@ public class ModifyCustomer implements Initializable {
     }
 
 
+    /**
+     * Method to populate the division combobox. Will take the country selected and will filter the division based on selection.
+     * @param actionEvent actionevent on click
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onCountryComboBox(ActionEvent actionEvent) throws SQLException {
         if(countryComboBox.getSelectionModel().getSelectedItem().equals("U.S")){
             divisionComboBox.setItems(DBDivisions.addDivisionNameUs());

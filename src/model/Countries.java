@@ -16,19 +16,11 @@ public class Countries {
     }
 
     /**
-     * Returns the country ID
+     * Returns the country ID - unused
      * @return country ID
      */
     public int getCountryID(){
         return countryID;
-    }
-
-    /**
-     * sets country ID
-     * @param countryID sets country ID
-     */
-    public void setCountryID(int countryID){
-        this.countryID = countryID;
     }
 
     /**
@@ -39,11 +31,4 @@ public class Countries {
         return countryName;
     }
 
-    /**
-     * sets country name
-     * @param countryName sets country name
-     */
-    public void setCountryName(String countryName){
-        this.countryName = countryName;
-    }
 }

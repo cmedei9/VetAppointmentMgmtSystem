@@ -27,14 +27,6 @@ public class Contacts {
     }
 
     /**
-     * setter for contact id
-     * @param contactID sets value for contact id
-     */
-    public void setContactID(int contactID) {
-        this.contactID = contactID;
-    }
-
-    /**
      * getter for contact name
      * @return returns contact name
      */
@@ -42,27 +34,14 @@ public class Contacts {
         return contactName;
     }
 
-    /**
-     * setter for contact name
-     * @param contactName sets value for contact name
-     */
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
 
     /**
-     * getter for email address
+     * getter for email address - unused
      * @return returns email address
      */
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    /**
-     * setter for email address
-     * @param emailAddress sets value for email address
-     */
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
+
 }

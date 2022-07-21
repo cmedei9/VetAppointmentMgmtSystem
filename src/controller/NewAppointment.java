@@ -42,6 +42,13 @@ public class NewAppointment implements Initializable {
 
     public boolean saveFlag = true;
 
+    /**
+     * Save button which saves the information in the fields, comboboxes, and calendar data and save it to the database. Generates alerts for empty fields, customer appointment conflictions,
+     * timing mismatches and for appointments within business hours. Also takes into consideration the users localtime and converts it to EST.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onSaveButton(ActionEvent actionEvent) throws IOException, SQLException {
 
         saveFlag = true;
@@ -154,6 +161,11 @@ public class NewAppointment implements Initializable {
     }
 
 
+    /**
+     * Cancel button takes the user back to the main controller
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     */
     public void onCancelButton(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));

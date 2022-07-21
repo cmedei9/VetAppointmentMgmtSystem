@@ -42,13 +42,6 @@ public class Customers {
     }
 
     /**
-     * sets customer id
-     */
-    public void setCustomerID(){
-        this.customerID = customerID;
-    }
-
-    /**
      * return customer postal code
      * @return customer postal code
      */
@@ -57,25 +50,11 @@ public class Customers {
     }
 
     /**
-     * sets customer postal code
-     */
-    public void setCustomerPostalCode(){
-        this.customerPostalCode = customerPostalCode;
-    }
-
-    /**
-     * returns division ID
+     * returns division ID - unused
      * @return division ID
      */
     public int getDivisionID() {
         return divisionID;
-    }
-
-    /**
-     * sets division ID
-     */
-    public void setDivisionID(){
-        this.divisionID = divisionID;
     }
 
     /**
@@ -87,25 +66,11 @@ public class Customers {
     }
 
     /**
-     * sets customer name
-     */
-    public void setCustomerName(){
-        this.customerName = customerName;
-    }
-
-    /**
      * returns customer address
      * @return customer address
      */
     public String getCustomerAddress(){
         return customerAddress;
-    }
-
-    /**
-     * sets customer address
-     */
-    public void setCustomerAddress(){
-        this.customerAddress = customerAddress;
     }
 
     /**
@@ -117,26 +82,28 @@ public class Customers {
     }
 
     /**
-     * sets customer phone number
+     * returns customer country
+     * @return customer country
      */
-    public void setCustomerPhoneNumber(){
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
-
     public String getCountry() {
         return country;
     }
 
+    /**
+     * setter for customer country
+     * @param countryID country ID
+     */
     public void setCountry(String countryID) {
         this.country = countryID;
     }
 
+    /**
+     * returns customers division name
+     * @return customers division name
+     */
     public String getDivisionName() {
         return divisionName;
     }
 
-    public void setDivisionName(String divisionName) {
-        this.divisionName = divisionName;
-    }
 
 }

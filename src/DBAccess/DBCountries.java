@@ -4,7 +4,6 @@ import helper.JDBC;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Countries;
-import model.Customers;
 
 import java.sql.*;
 
@@ -12,6 +11,11 @@ import java.sql.*;
 
 public class DBCountries {
 
+    /**
+     * method that returns all countries
+     * @return returns the country list
+     * @throws SQLException exception to show failed jdbc execution
+     */
    public static ObservableList<Countries> getCountries() throws SQLException{
 
         ObservableList<Countries> countryList = FXCollections.observableArrayList();
@@ -30,6 +34,11 @@ public class DBCountries {
         return countryList;
     }
 
+    /**
+     * method used in the customer controllers to add country names to the combo box
+     * @return returns the country names
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList addCountryName() throws SQLException {
         ObservableList<String> countryList = FXCollections.observableArrayList();
 
@@ -41,34 +50,4 @@ public class DBCountries {
         return countryList;
     }
 
-    public static ObservableList addCountryId() throws SQLException {
-        ObservableList<Integer> countryList = FXCollections.observableArrayList();
-
-        ObservableList<Countries> countriesObservableList = DBCountries.getCountries();
-
-        for (Countries c : countriesObservableList) {
-            countryList.add(c.getCountryID());
-        }
-
-
-        return countryList;
-    }
-
-
-
-    public static void checkDateConversion(){
-        System.out.println("CREATE DATE TEST");
-        String sql = "select Create_Date from countries";
-
-        try{
-            PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Timestamp ts = rs.getTimestamp("Create_Date");
-                System.out.println("CD: "+ts.toLocalDateTime().toString());
-            }
-        } catch (SQLException throwables){
-            throwables.printStackTrace();
-        }
-    }
 }

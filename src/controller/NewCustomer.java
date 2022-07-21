@@ -39,6 +39,11 @@ public class NewCustomer implements Initializable {
     public ComboBox<String> countryComboBox;
     public ComboBox<String> divisionComboBox;
 
+    /**
+     * Method to populate the division combobox. Will take the country selected and will filter the division based on selection.
+     * @param actionEvent actionevent on click
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onCountryComboBox(ActionEvent actionEvent) throws SQLException{
 
         if(countryComboBox.getSelectionModel().getSelectedItem().equals("U.S")){
@@ -55,6 +60,12 @@ public class NewCustomer implements Initializable {
 
     }
 
+    /**
+     * Save button to save the new customer in the DB. Takes user back to main controller.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onSaveButton(ActionEvent actionEvent) throws IOException, SQLException {
         DBCustomers.newCustomer(
 
@@ -72,6 +83,11 @@ public class NewCustomer implements Initializable {
         stage.show();
     }
 
+    /**
+     * Takes user back to main controller.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     */
     public void onCancelButton(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));
         Scene scene = new Scene(root);

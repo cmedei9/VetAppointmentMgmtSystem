@@ -69,27 +69,11 @@ public class Appointments {
     }
 
     /**
-     * sets appt ID
-     * @param appointmentID sets appt id
-     */
-    public void setAppointmentID(int appointmentID) {
-        this.appointmentID = appointmentID;
-    }
-
-    /**
      * returns appt title
      * @return appt title
      */
     public String getAppointmentTitle(){
         return appointmentTitle;
-    }
-
-    /**
-     * sets appt title
-     * @param appointmentTitle sets appt title
-     */
-    public void setAppointmentTitle(String appointmentTitle) {
-        this.appointmentTitle = appointmentTitle;
     }
 
     /**
@@ -101,14 +85,6 @@ public class Appointments {
     }
 
     /**
-     * sets appt description
-     * @param appointmentDescription sets appt description
-     */
-    public void setAppointmentDescription(String appointmentDescription) {
-        this.appointmentDescription = appointmentDescription;
-    }
-
-    /**
      * returns appt location
      * @return appt location
      */
@@ -117,27 +93,11 @@ public class Appointments {
     }
 
     /**
-     * sets appt location
-     * @param appointmentLocation sets appt location
-     */
-    public void setAppointmentLocation(String appointmentLocation) {
-        this.appointmentLocation = appointmentLocation;
-    }
-
-    /**
      * returns appt type
      * @return appt type
      */
     public String getAppointmentType(){
         return appointmentType;
-    }
-
-    /**
-     * sets appt type
-     * @param appointmentType sets appt type
-     */
-    public void setAppointmentType(String appointmentType) {
-        this.appointmentType = appointmentType;
     }
 
     /**
@@ -150,28 +110,12 @@ public class Appointments {
     }
 
     /**
-     * sets appt start time
-     * @param apptStartTime sets appt start time
-     */
-    public void setApptStartTime(LocalDateTime apptStartTime){
-        this.apptStartTime = apptStartTime;
-    }
-
-    /**
      * returns appt end time
      *
      * @return appt end time
      */
     public LocalDateTime getApptEndTime() {
         return apptEndTime;
-    }
-
-    /**
-     * sets appt end time
-     * @param apptEndTime sets appt end time
-     */
-    public void setApptEndTime(LocalDateTime apptEndTime) {
-        this.apptEndTime = apptEndTime;
     }
 
     /**
@@ -183,14 +127,6 @@ public class Appointments {
     }
 
     /**
-     * sets customer id
-     * @param customerID sets customer id
-     */
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
-    /**
      * returns user id
      * @return user id
      */
@@ -199,15 +135,7 @@ public class Appointments {
     }
 
     /**
-     * sets user id
-     * @param userID sets user id
-     */
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    /**
-     * returns contact ID
+     * returns contact ID - unused
      * @return contact ID
      */
     public int getContactID() {
@@ -215,34 +143,27 @@ public class Appointments {
     }
 
     /**
-     * sets contact ID
-     * @param contactID sets contact ID
+     * returns contact name
+     * @return contact name
      */
-    public void setContactID(int contactID) {
-        this.contactID = contactID;
-    }
-
     public String getContactName() {
         return contactName;
     }
 
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-
+    /**
+     * returns appt start date
+     * @return appt start date
+     */
     public LocalDate getApptStartDate() {
         return apptStartDate;
     }
 
-    public void setApptStartDate(LocalDate apptStartDate) {
-        this.apptStartDate = apptStartDate;
-    }
-
+    /**
+     * returns appt end date
+     * @return appt end date
+     */
     public LocalDate getApptEndDate() {
         return apptEndDate;
     }
 
-    public void setApptEndDate(LocalDate apptEndDate) {
-        this.apptEndDate = apptEndDate;
-    }
 }

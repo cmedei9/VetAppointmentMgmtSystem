@@ -15,6 +15,11 @@ import java.sql.SQLException;
 
 public class DBCustomers {
 
+    /**
+     * method used to return all customer information in the database
+     * @return returns the complete list of customers in the database
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList<Customers> getCustomers() throws SQLException {
 
         ObservableList<Customers> customerList = FXCollections.observableArrayList();
@@ -40,6 +45,16 @@ public class DBCustomers {
         return customerList;
     }
 
+    /**
+     * method used for creation of a new customer in the database
+     * @param customerName String customers name
+     * @param customerAddress String customers address
+     * @param customerPostalCode String customers postal code
+     * @param customerPhoneNumber String customers phone number
+     * @param division String division the customer belongs to
+     * @return returns the customer information
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static boolean newCustomer(String customerName, String customerAddress,
                                       String customerPostalCode, String customerPhoneNumber, String division) throws SQLException {
 
@@ -60,6 +75,18 @@ public class DBCustomers {
         return add;
     }
 
+    /**
+     *
+     * method used for modifying an existing customer in the database
+     * @param customerId Int for customer ID
+     * @param customerName String customers name
+     * @param customerAddress String customers address
+     * @param customerPostalCode String customers postal code
+     * @param customerPhoneNumber String customers phone number
+     * @param division String division the customer belongs to
+     * @return returns the customer information
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static int modifyCustomer(int customerId, String customerName, String customerAddress,
                                      String customerPostalCode, String customerPhoneNumber, String division) throws SQLException {
 
@@ -80,6 +107,12 @@ public class DBCustomers {
         return add;
     }
 
+    /**
+     * Method used to remove a customer from the database
+     * @param cid customers ID
+     * @return returns true if the ID is found in the database
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static boolean removeCustomer(int cid) throws SQLException {
 
         String sql = "DELETE from customers WHERE Customer_ID = ?";
@@ -92,19 +125,11 @@ public class DBCustomers {
         return true;
     }
 
-        public static ObservableList addCustomers() throws SQLException {
-        ObservableList<String> customerList = FXCollections.observableArrayList();
-
-        ObservableList<Customers> customersObservableList = DBCustomers.getCustomers();
-
-        for (Customers c : customersObservableList) {
-            customerList.add(c.getCustomerName());
-        }
-
-
-        return customerList;
-    }
-
+    /**
+     * Method used to populate combo boxes with all customer ID's
+     * @return returns a list of all customer ID's
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList addCustomerId() throws SQLException {
         ObservableList<Integer> customerList = FXCollections.observableArrayList();
 
@@ -116,18 +141,6 @@ public class DBCustomers {
 
 
         return customerList;
-    }
-
-    public static int customerNametoID() throws SQLException {
-        int contactId = 0;
-
-        ObservableList<Customers> customersObservableList = DBCustomers.getCustomers();
-        for (Customers c : customersObservableList) {
-            if (customersObservableList.equals(c.getCustomerName()))
-                contactId = c.getCustomerID();
-
-        }
-        return contactId;
     }
 
 }

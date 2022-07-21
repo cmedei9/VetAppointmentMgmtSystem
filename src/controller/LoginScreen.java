@@ -17,13 +17,16 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Appointments;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -38,10 +41,12 @@ public class LoginScreen implements Initializable {
     public Label userIdLabel;
     public Label titleLabel;
 
+    boolean login = false;
+
     /**
      * upcomingAppointment method pulls all appointments from the database and adds all appointments within fifteen minutes of login
      * to the 'futureAppointments' observablelist. Alerts are generated both for an upcoming appointment or no appointment.
-     * @throws SQLException
+     * @throws SQLException exception to show failed jdbc execution
      */
     public static void upcomingAppointment() throws SQLException {
 
@@ -70,8 +75,9 @@ public class LoginScreen implements Initializable {
 
     /**
      * Login button changes the scene to the main screen after a successful user login
-     * @param actionEvent
+     * @param actionEvent actionevent
      * @throws IOException exception to prevent I/O failure
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onLoginButton(ActionEvent actionEvent) throws IOException, SQLException {
 
@@ -81,6 +87,9 @@ public class LoginScreen implements Initializable {
         ResultSet rs = statement.executeQuery(credentials);
 
         if(rs.next()){
+
+            login = true;
+            logger();
 
             try {
                 upcomingAppointment();
@@ -96,10 +105,16 @@ public class LoginScreen implements Initializable {
         }
 
         else if (Locale.getDefault().getLanguage().equals("fr")){
+            login = false;
+            logger();
             Alerts.loginErrorAlertFr();
+
         }
         else if (Locale.getDefault().getLanguage().equals("en")){
+            login = false;
+            logger();
             Alerts.loginErrorAlertEn();
+
 
 
         }
@@ -107,8 +122,9 @@ public class LoginScreen implements Initializable {
 
     /**
      * Password field replicates the same action as the login button
-     * @param actionEvent
+     * @param actionEvent actionevent
      * @throws IOException exception to prevent I/O failure
+     * @throws SQLException exception to show failed jdbc execution
      */
     public void onPasswordField(ActionEvent actionEvent) throws IOException, SQLException {
 
@@ -119,11 +135,15 @@ public class LoginScreen implements Initializable {
 
         if(rs.next()){
 
+            login = true;
+            logger();
+
             try {
                 upcomingAppointment();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));
             Scene scene = new Scene(root);
@@ -132,9 +152,49 @@ public class LoginScreen implements Initializable {
             stage.show();
         }
 
-        else {
+        else if (Locale.getDefault().getLanguage().equals("fr")){
+            login = false;
+            logger();
+            Alerts.loginErrorAlertFr();
+
+        }
+        else if (Locale.getDefault().getLanguage().equals("en")){
+            login = false;
+            logger();
             Alerts.loginErrorAlertEn();
         }
+    }
+
+    /**
+     * logger method to track successful and failed log in attempts. records if successful/failed, user id used, password used, and a timestamp. file is saved in the
+     * root directory as login_activity.txt
+     * @throws IOException exception to prevent I/O failure
+     */
+    public void logger() throws IOException {
+        String userID = userIDField.getText();
+        String password = passwordField.getText();
+        Timestamp timestamp = Timestamp.valueOf(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        FileWriter fw = new FileWriter("login_activity.txt", true);
+
+        if(login) {
+
+            fw.write("LOGIN ATTEMPT - SUCCESS\n" + "User ID Entered: " + userID + " | Password entered: " + password +
+                    " | Timestamp: " + timestamp + "\n");
+            System.out.println("Logging successful log-on attempt...");
+
+        }
+
+        else{
+
+            fw.write("LOGIN ATTEMPT - FAIL\n" + "User ID Entered: " + userID + " | Password entered: " + password +
+                    " | Timestamp: " + timestamp + "\n");
+            System.out.println("Logging failed log-on attempt...");
+
+        }
+
+        fw.close();
+
     }
 
     /**
@@ -156,6 +216,7 @@ public class LoginScreen implements Initializable {
     /**
      *  Exits the applications
      * @param actionEvent System.exit closes the application
+     * @throws IOException exception to show failed IO execution
      */
     public void onExit(ActionEvent actionEvent) throws IOException {
         System.exit(0);
@@ -172,8 +233,6 @@ public class LoginScreen implements Initializable {
 
         locationLabel();
 
-
-
         resourceBundle = ResourceBundle.getBundle("controller/Nat", Locale.getDefault());
         if(Locale.getDefault().getLanguage().equals("fr") || Locale.getDefault().getLanguage().equals("en")) {
 
@@ -184,12 +243,5 @@ public class LoginScreen implements Initializable {
             loginButton.setText(resourceBundle.getString("login"));
             passwordLabel.setText(resourceBundle.getString("password"));
         }
-
-
-
-
-
     }
-
-
 }

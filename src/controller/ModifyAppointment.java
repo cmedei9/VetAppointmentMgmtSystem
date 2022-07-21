@@ -45,12 +45,15 @@ public class ModifyAppointment implements Initializable {
     public static Appointments selectedItem;
 
     public boolean saveFlag = true;
-    public static void selectedItem(Appointments appointment){
-        selectedItem = appointment;
-    }
 
 
 
+
+    /**
+     * Cancel button to take the user back to the main screen
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     */
     public void onCancelButton(ActionEvent actionEvent) throws IOException {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/MainScreen.fxml")));
@@ -59,8 +62,25 @@ public class ModifyAppointment implements Initializable {
         stage.setScene(scene);
         stage.show();
 
+
+
     }
 
+    /**
+     * Method to pass info from the selection on the main screen
+     * @param appointment the appointment that was selected
+     */
+    public static void selectedItem(Appointments appointment){
+        selectedItem = appointment;
+    }
+
+    /**
+     * Save button which saves the information in the fields, comboboxes, and calendar data and save it to the database. Generates alerts for empty fields, customer appointment conflictions,
+     * timing mismatches and for appointments within business hours. Also takes into consideration the users localtime and converts it to EST.
+     * @param actionEvent actionevent on click
+     * @throws IOException exception to show failed IO execution
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public void onSaveButton(ActionEvent actionEvent) throws IOException, SQLException {
 
         saveFlag = true;
@@ -114,20 +134,20 @@ public class ModifyAppointment implements Initializable {
             }
         }
 
-        LocalDate localDate = startCalendar.getValue(); // Value of appointment date
-        LocalTime localTimeStart = LocalTime.parse(startTimeComboBox.getValue()); // Start time converter to users local time
-        LocalTime localTimeEnd = LocalTime.parse(endTimeComboBox.getValue()); // End time converter to users local time
+        LocalDate localDate = startCalendar.getValue();
+        LocalTime localTimeStart = LocalTime.parse(startTimeComboBox.getValue());
+        LocalTime localTimeEnd = LocalTime.parse(endTimeComboBox.getValue());
 
-        LocalDateTime start = LocalDateTime.of(localDate, localTimeStart); // LocalDateTime of users start date and start time
-        LocalDateTime end = LocalDateTime.of(localDate, localTimeEnd); // LocalDateTime of users end date and end time
+        LocalDateTime start = LocalDateTime.of(localDate, localTimeStart);
+        LocalDateTime end = LocalDateTime.of(localDate, localTimeEnd);
 
-        ZonedDateTime localToZoneStart = ZonedDateTime.of(start, ZoneId.systemDefault()); // ZoneDateTime of users zone
-        ZonedDateTime localtoEstStart = localToZoneStart.withZoneSameInstant(ZoneId.of("America/New_York")); // ZoneDateTime (start) of users zone converted to EST
-        ZonedDateTime localToZoneEnd = ZonedDateTime.of(end, ZoneId.systemDefault()); // ZoneDateTime of users zone
-        ZonedDateTime localtoEstEnd = localToZoneEnd.withZoneSameInstant(ZoneId.of("America/New_York")); //ZoneDateTime (end) of users zone converted to EST
+        ZonedDateTime localToZoneStart = ZonedDateTime.of(start, ZoneId.systemDefault());
+        ZonedDateTime localtoEstStart = localToZoneStart.withZoneSameInstant(ZoneId.of("America/New_York"));
+        ZonedDateTime localToZoneEnd = ZonedDateTime.of(end, ZoneId.systemDefault());
+        ZonedDateTime localtoEstEnd = localToZoneEnd.withZoneSameInstant(ZoneId.of("America/New_York"));
 
-        LocalTime localTimeToEstStart = localtoEstStart.toLocalTime(); // Converts users time to EST time
-        LocalTime localTimeToEstEnd = localtoEstEnd.toLocalTime(); // Converts users time to EST time
+        LocalTime localTimeToEstStart = localtoEstStart.toLocalTime();
+        LocalTime localTimeToEstEnd = localtoEstEnd.toLocalTime();
 
         if(LocalTime.parse(startTimeComboBox.getSelectionModel().getSelectedItem()).isAfter(LocalTime.parse(endTimeComboBox.getSelectionModel().getSelectedItem()))
                 || LocalTime.parse(startTimeComboBox.getSelectionModel().getSelectedItem()).equals(LocalTime.parse(endTimeComboBox.getSelectionModel().getSelectedItem()))){
@@ -143,8 +163,6 @@ public class ModifyAppointment implements Initializable {
             saveFlag = false;
             return;
         }
-
-
 
 
         else if(saveFlag = true) {
@@ -169,6 +187,7 @@ public class ModifyAppointment implements Initializable {
             stage.show();
         }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

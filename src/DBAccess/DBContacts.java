@@ -4,7 +4,6 @@ import helper.JDBC;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Contacts;
-import model.Divisions;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +11,11 @@ import java.sql.SQLException;
 
 public class DBContacts {
 
+    /**
+     * method used to return all the contacts in the database
+     * @return observablelist of contacts
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList<Contacts> getContacts() throws SQLException {
 
         ObservableList<Contacts> contactList = FXCollections.observableArrayList();
@@ -34,6 +38,12 @@ public class DBContacts {
 
     }
 
+    /**
+     * method used to return contact id by the contact name
+     * @param c the parameter used for the contact name
+     * @return returns the contact info
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static Contacts getContactId(String c) throws SQLException {
 
         String sql = "SELECT * from contacts WHERE Contact_Name = ?";
@@ -61,6 +71,12 @@ public class DBContacts {
         return null;
     }
 
+
+    /**
+     * method used mainly for adding contacts into comboboxes for other scenes
+     * @return contactname is returned
+     * @throws SQLException exception to show failed jdbc execution
+     */
     public static ObservableList addContacts() throws SQLException {
         ObservableList<String> contactsList = FXCollections.observableArrayList(); //OL list of just contact names
 
@@ -73,28 +89,4 @@ public class DBContacts {
         return contactsList;
     }
 
-    public static ObservableList addContactsId() throws SQLException {
-        ObservableList<Integer> contactsList = FXCollections.observableArrayList();
-
-        ObservableList<Contacts> contactsObservableList = getContacts();
-
-        for (Contacts c : contactsObservableList) {
-            contactsList.add(c.getContactID());
-        }
-
-
-        return contactsList;
-    }
-
-    public static int contactNametoID() throws SQLException {
-        int contactId = 0;
-
-        ObservableList<Contacts> contactsObservableList = DBContacts.getContacts();
-        for (Contacts c : contactsObservableList) {
-            if (contactsObservableList.equals(c.getContactName()))
-                contactId = c.getContactID();
-
-        }
-        return contactId;
-    }
 }
