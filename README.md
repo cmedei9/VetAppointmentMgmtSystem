@@ -5,7 +5,7 @@ Application developed with IntelliJ IDEA 2022.1.2 Ultimate Edition | Java Versio
 
 A user guide has been provided to demonstrate the functionality of the application.
 
-** Please note that due to the SQL Database no longer being hosted, the application may not work as intended in it's current state. A new database will need to be configured to get the application running accordingly.
+** Please note that due to the SQL Database no longer being hosted, the application will not work as intended in it's current state. A new database will need to be configured to get the application running accordingly. A SQL dump has been provided if looking to recreate the database locally.
 
 
 # Business Case
