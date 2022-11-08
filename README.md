@@ -3,6 +3,8 @@
 
 Application developed with IntelliJ IDEA 2022.1.2 Ultimate Edition | Java Version 11.0.14 | JavaFX Version 18.0.1 | MySQL Connector Java-8.0.29
 
+A user guide has been provided to demonstrate the functionality of the application.
+
 ** Please note that due to the SQL Database no longer being hosted, the application may not work as intended in it's current state. A new database will need to be configured to get the application running accordingly.
 
 
